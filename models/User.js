@@ -24,13 +24,13 @@ const userSchema = new Schema(
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Thoughts",
+        ref: "Thought",
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Users",
+        ref: "User",
       },
     ],
   },
@@ -41,6 +41,8 @@ const userSchema = new Schema(
     id: false,
   }
 );
+
+// create virtual for friend count
 
 const User = model("user", userSchema);
 
