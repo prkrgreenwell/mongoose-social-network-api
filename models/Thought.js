@@ -1,8 +1,13 @@
 /** @format */
 
-const { Schema, model } = require("mongoose");
-const dateFormatter = require("../utils/date");
-
+const { Schema, model, Types } = require("mongoose");
+function dateFormatter(date) {
+  const formattedDate = new Date(date);
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(formattedDate);
+}
 const reactionSchema = new Schema(
   {
     reactionId: {
