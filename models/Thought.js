@@ -1,6 +1,6 @@
 /** @format */
 
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 const { dateFormatter } = require("../utils/date");
 
 const reactionSchema = new Schema(
