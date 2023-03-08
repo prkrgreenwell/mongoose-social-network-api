@@ -2,6 +2,8 @@
 
 const { Schema, model } = require("mongoose");
 
+console.log("reading model");
+
 const userSchema = new Schema(
   {
     username: {
@@ -37,12 +39,15 @@ const userSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }
 );
 
-// create virtual for friend count
+userSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
 
 const User = model("user", userSchema);
 

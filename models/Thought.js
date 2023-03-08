@@ -1,7 +1,7 @@
 /** @format */
 
 const { Schema, model } = require("mongoose");
-const dateFormatter = require("../utils/date");
+const { dateFormatter } = require("../utils/date");
 
 const reactionSchema = new Schema(
   {
@@ -9,7 +9,7 @@ const reactionSchema = new Schema(
       type: Schema.Types.ObjectId,
       default: () => new Types.ObjectId(),
     },
-    reationBody: {
+    reactionBody: {
       type: String,
       required: true,
       maxlength: 280,
